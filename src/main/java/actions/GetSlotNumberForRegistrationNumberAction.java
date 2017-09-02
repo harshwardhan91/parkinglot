@@ -4,10 +4,9 @@ import data.ParkingLotData;
 import exceptions.BaseException;
 import exceptions.InvalidArgumentException;
 
-import java.util.List;
 
-public class GetSlotNumberForRegistrationNumber extends BaseParkingAction {
-    public GetSlotNumberForRegistrationNumber(ParkingLotData parkingLotData) {
+public class GetSlotNumberForRegistrationNumberAction extends BaseParkingAction {
+    public GetSlotNumberForRegistrationNumberAction(ParkingLotData parkingLotData) {
         super(parkingLotData);
     }
 

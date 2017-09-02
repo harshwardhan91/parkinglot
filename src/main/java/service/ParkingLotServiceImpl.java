@@ -13,75 +13,37 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     }
 
     @Override
-    public void createParkingLot(String[] args) {
-        CreateParkingLotAction createParkingLotAction = new CreateParkingLotAction(parkingLotData);
-        try {
-            createParkingLotAction.performAction(args);
-        } catch (BaseException | Exception ex ) {
-            System.out.println(ex.getMessage());
-        }
+    public CreateParkingLotAction createParkingLot(String[] args) {
+        return new CreateParkingLotAction(parkingLotData);
     }
 
     @Override
-    public void parkVehicle(String[] args) {
-        ParkVehicleAction parkVehicleAction = new ParkVehicleAction(parkingLotData);
-        try {
-            parkVehicleAction.performAction(args);
-        } catch (BaseException | Exception ex ) {
-            System.out.println(ex.getMessage());
-        }
+    public ParkVehicleAction parkVehicle(String[] args) {
+        return new ParkVehicleAction(parkingLotData);
     }
 
     @Override
-    public void showStatus(String[] args) {
-        ShowStatusAction showStatusAction = new ShowStatusAction(parkingLotData);
-        try {
-            showStatusAction.performAction(args);
-        }  catch (BaseException | Exception ex ) {
-            System.out.println(ex.getMessage());
-        }
+    public ShowStatusAction showStatus(String[] args) {
+        return new ShowStatusAction(parkingLotData);
     }
 
     @Override
-    public void leaveVehicle(String[] args) {
-        LeaveParkingAction leaveParkingAction = new LeaveParkingAction(parkingLotData);
-        try {
-            leaveParkingAction.performAction(args);
-        }  catch (BaseException | Exception ex ) {
-            System.out.println(ex.getMessage());
-        }
+    public LeaveParkingAction leaveVehicle(String[] args) {
+        return new LeaveParkingAction(parkingLotData);
     }
 
     @Override
-    public void getRegistrationOfVehicleWithColor(String[] args) {
-        GetVehiclesRegNumberWithColorAction getVehiclesRegNumberWithColorAction = new
-                GetVehiclesRegNumberWithColorAction(parkingLotData);
-        try{
-            getVehiclesRegNumberWithColorAction.performAction(args);
-        } catch (BaseException | Exception ex ) {
-            System.out.println(ex.getMessage());
-        }
+    public GetVehiclesRegNumberWithColorAction getRegistrationOfVehicleWithColor(String[] args) {
+        return new GetVehiclesRegNumberWithColorAction(parkingLotData);
     }
 
     @Override
-    public void getSlotNumbersOfVehicleWithColor(String[] args) {
-        GetSlotsForVehiclesWithColorAction getSlotsForVehiclesWithColorAction = new
-                GetSlotsForVehiclesWithColorAction(parkingLotData);
-        try{
-            getSlotsForVehiclesWithColorAction.performAction(args);
-        } catch (BaseException | Exception ex ) {
-            System.out.println(ex.getMessage());
-        }
+    public GetSlotsForVehiclesWithColorAction getSlotNumbersOfVehicleWithColor(String[] args) {
+        return new GetSlotsForVehiclesWithColorAction(parkingLotData);
     }
 
     @Override
-    public void getSlotNumberOfVehicleWithRegistrationNumber(String[] args) {
-        GetSlotNumberForRegistrationNumber getSlotNumberForRegistrationNumber = new
-                GetSlotNumberForRegistrationNumber(parkingLotData);
-        try{
-            getSlotNumberForRegistrationNumber.performAction(args);
-        } catch (BaseException | Exception ex ) {
-            System.out.println(ex.getMessage());
-        }
+    public GetSlotNumberForRegistrationNumberAction getSlotNumberOfVehicleWithRegistrationNumber(String[] args) {
+        return new GetSlotNumberForRegistrationNumberAction(parkingLotData);
     }
 }

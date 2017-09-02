@@ -1,5 +1,7 @@
 package controller;
 
+import actions.BaseParkingAction;
+import exceptions.BaseException;
 import service.ParkingLotServiceImpl;
 
 import static actions.ParkingActionConstants.*;
@@ -23,31 +25,41 @@ public class InputDelegator {
     private boolean delegateAction(String[] arguments) {
         String action = arguments[0];
         boolean result = true;
+        BaseParkingAction baseParkingAction = null;
         switch (action) {
             case CREATE_PARKING_LOT:
-                parkingLotService.createParkingLot(arguments);
+                baseParkingAction = parkingLotService.createParkingLot(arguments);
                 break;
             case PARK:
-                parkingLotService.parkVehicle(arguments);
+                baseParkingAction = parkingLotService.parkVehicle(arguments);
                 break;
             case LEAVE:
-                parkingLotService.leaveVehicle(arguments);
+                baseParkingAction = parkingLotService.leaveVehicle(arguments);
                 break;
             case STATUS:
-                parkingLotService.showStatus(arguments);
+                baseParkingAction = parkingLotService.showStatus(arguments);
                 break;
             case REGISTRATION_NUMBERS_WITH_COLOUR:
-                parkingLotService.getRegistrationOfVehicleWithColor(arguments);
+                baseParkingAction = parkingLotService.getRegistrationOfVehicleWithColor(arguments);
                 break;
             case SLOT_NUMBER_FOR_REGISTRATION_NUMBER:
-                parkingLotService.getSlotNumberOfVehicleWithRegistrationNumber(arguments);
+                baseParkingAction = parkingLotService.getSlotNumberOfVehicleWithRegistrationNumber(arguments);
                 break;
             case SLOT_NUMBERS_WITH_COLOUR:
-                parkingLotService.getSlotNumbersOfVehicleWithColor(arguments);
+                baseParkingAction = parkingLotService.getSlotNumbersOfVehicleWithColor(arguments);
                 break;
             default:
                 result = false;
                 break;
+        }
+        if(result && baseParkingAction!=null){
+            try {
+                baseParkingAction.performAction(arguments);
+            } catch (BaseException | Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }else{
+            System.out.println("Not valid command.");
         }
         return result;
     }
