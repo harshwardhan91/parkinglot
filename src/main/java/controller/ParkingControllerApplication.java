@@ -8,8 +8,6 @@ import java.util.stream.Stream;
 
 public class ParkingControllerApplication {
 
-
-
     public static void main(String[] args) {
         if(args!=null && args.length>0){
             readFile(args[0]);
