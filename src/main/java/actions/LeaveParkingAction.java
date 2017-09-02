@@ -20,7 +20,7 @@ public class LeaveParkingAction extends BaseParkingAction {
                 throw new InvalidArgumentException("Slot number not valid");
             }
             if(parkingLotData.leaveVehicleAtSlot(slotNumber-1)){
-                System.out.println("Slot number " + (slotNumber -1) + " is free");
+                System.out.println("Slot number " + slotNumber + " is free");
                 return true;
             }
             return false;

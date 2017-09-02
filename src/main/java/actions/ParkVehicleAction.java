@@ -25,11 +25,12 @@ public class ParkVehicleAction extends BaseParkingAction {
             out.println("Sorry, parking lot is full");
             return true;
         }else{
+            int slotNumber = parkingSlot.getSlotNumber() + 1;
             if(parkingSlot.getFloor()!=0) {
-                out.println("Allocated slot number " + parkingSlot.getSlotNumber() + 1 + " at floor " + parkingSlot
-                        .getFloor());
+                int floorNumber = parkingSlot.getFloor() + 1;
+                out.println("Allocated slot number " + slotNumber + " at floor " + floorNumber);
             }else{
-                out.println("Allocated slot number " + parkingSlot.getSlotNumber() + 1);
+                out.println("Allocated slot number " + slotNumber);
             }
             return true;
         }

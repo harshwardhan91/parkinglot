@@ -63,9 +63,9 @@ public class ParkingLotData {
                 if(parkingSlot.getParkedVehicle()!=null){
                     builder.append("\n");
                     if (printFloor) {
-                        builder.append(i).append("\t").append(i1).append("\t");
+                        builder.append(i+1).append("\t").append(i1+1).append("\t");
                     } else {
-                        builder.append(i1).append("\t");
+                        builder.append(i1+1).append("\t");
                     }
                     builder.append(parkingSlot.getParkedVehicle().getRegistrationNumber()).append("\t").append("\t").append
                                 (parkingSlot.getParkedVehicle().getColor());
