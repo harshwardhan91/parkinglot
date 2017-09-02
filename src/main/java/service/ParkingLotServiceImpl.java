@@ -1,7 +1,9 @@
 package service;
 
 import actions.CreateParkingLotAction;
+import actions.LeaveParkingAction;
 import actions.ParkVehicleAction;
+import actions.ShowStatusAction;
 import data.ParkingLotData;
 import exceptions.BaseException;
 
@@ -35,12 +37,22 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
     @Override
     public void showStatus(String[] args) {
-
+        ShowStatusAction showStatusAction = new ShowStatusAction(parkingLotData);
+        try {
+            showStatusAction.performAction(args);
+        }  catch (BaseException | Exception ex ) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     @Override
     public void leaveVehicle(String[] args) {
-
+        LeaveParkingAction leaveParkingAction = new LeaveParkingAction(parkingLotData);
+        try {
+            leaveParkingAction.performAction(args);
+        }  catch (BaseException | Exception ex ) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     @Override

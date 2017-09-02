@@ -22,10 +22,15 @@ public class ParkVehicleAction extends BaseParkingAction {
         String color = args[2];
         ParkingSlot parkingSlot = parkingLotData.parkVehicle(new Vehicle(regNumber, color));
         if(parkingSlot==null){
-            out.println("No parking slot found empty");
+            out.println("Sorry, parking lot is full");
             return true;
         }else{
-            out.println("Allocated slot number " + parkingSlot.getSlotNumber() + " at floor " + parkingSlot.getFloor());
+            if(parkingSlot.getFloor()!=0) {
+                out.println("Allocated slot number " + parkingSlot.getSlotNumber() + 1 + " at floor " + parkingSlot
+                        .getFloor());
+            }else{
+                out.println("Allocated slot number " + parkingSlot.getSlotNumber() + 1);
+            }
             return true;
         }
     }

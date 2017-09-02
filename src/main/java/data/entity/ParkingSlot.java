@@ -26,6 +26,10 @@ public class ParkingSlot {
         }
     }
 
+    public void leaveVehicle(){
+        parkedVehicle = null;
+    }
+
     public ParkingSpaceType getParkingSlotType() {
         return parkingSlotType;
     }

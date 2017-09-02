@@ -34,7 +34,7 @@ public class InputDelegator {
                 parkingLotService.leaveVehicle(arguments);
                 break;
             case STATUS:
-                parkingLotService.leaveVehicle(arguments);
+                parkingLotService.showStatus(arguments);
                 break;
             case REGISTRATION_NUMBERS_WITH_COLOUR:
                 parkingLotService.getRegistrationOfVehicleWithColor(arguments);
