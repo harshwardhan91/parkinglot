@@ -6,6 +6,7 @@ import data.entity.Vehicle;
 import exceptions.BaseException;
 import exceptions.DataNotExistException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingLotData {
@@ -93,5 +94,61 @@ public class ParkingLotData {
         }else{
             throw new DataNotExistException("No Parking slot found");
         }
+    }
+
+    public List<String> getVehiclesRegNumberWithColor(String color)  throws DataNotExistException{
+        if(parkingLotInstance == null){
+            throw new DataNotExistException("No Parking lot found");
+        }
+
+        List<String> resultList = new ArrayList<>();
+        List<List<ParkingSlot>> parkingSlots = parkingLotInstance.getParkingSlots();
+        for (List<ParkingSlot> parkingSlotsOnFloor : parkingSlots) {
+            for (ParkingSlot parkingSlot : parkingSlotsOnFloor) {
+                if(parkingSlot.getParkedVehicle()!=null && parkingSlot.getParkedVehicle().getColor().equalsIgnoreCase(color)){
+                    resultList.add(parkingSlot.getParkedVehicle().getRegistrationNumber());
+                }
+            }
+        }
+        return resultList;
+    }
+
+    public List<String> getSlotsForVehiclesWithColor(String color)  throws DataNotExistException{
+        if(parkingLotInstance == null){
+            throw new DataNotExistException("No Parking lot found");
+        }
+
+        List<String> resultList = new ArrayList<>();
+        List<List<ParkingSlot>> parkingSlots = parkingLotInstance.getParkingSlots();
+        for (List<ParkingSlot> parkingSlotsOnFloor : parkingSlots) {
+            for (ParkingSlot parkingSlot : parkingSlotsOnFloor) {
+                if(parkingSlot.getParkedVehicle()!=null && parkingSlot.getParkedVehicle().getColor().equalsIgnoreCase(color)){
+                    resultList.add(Integer.toString(parkingSlot.getSlotNumber()+1));
+                }
+            }
+        }
+        return resultList;
+    }
+    public int getSlotForVehiclesWithRegistrationNumber(String registrationNumber)  throws
+            DataNotExistException{
+        if(parkingLotInstance == null){
+            throw new DataNotExistException("No Parking lot found");
+        }
+
+        int slotNumber = -1;
+        List<List<ParkingSlot>> parkingSlots = parkingLotInstance.getParkingSlots();
+        for (List<ParkingSlot> parkingSlotsOnFloor : parkingSlots) {
+            for (ParkingSlot parkingSlot : parkingSlotsOnFloor) {
+                if(parkingSlot.getParkedVehicle()!=null && parkingSlot.getParkedVehicle().getRegistrationNumber()
+                        .equalsIgnoreCase(registrationNumber)){
+                    slotNumber = parkingSlot.getSlotNumber()+1;
+                    break;
+                }
+            }
+            if(slotNumber!=-1){
+                break;
+            }
+        }
+        return slotNumber;
     }
 }

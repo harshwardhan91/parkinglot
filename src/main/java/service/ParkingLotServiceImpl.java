@@ -1,9 +1,6 @@
 package service;
 
-import actions.CreateParkingLotAction;
-import actions.LeaveParkingAction;
-import actions.ParkVehicleAction;
-import actions.ShowStatusAction;
+import actions.*;
 import data.ParkingLotData;
 import exceptions.BaseException;
 
@@ -57,16 +54,34 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
     @Override
     public void getRegistrationOfVehicleWithColor(String[] args) {
-
+        GetVehiclesRegNumberWithColorAction getVehiclesRegNumberWithColorAction = new
+                GetVehiclesRegNumberWithColorAction(parkingLotData);
+        try{
+            getVehiclesRegNumberWithColorAction.performAction(args);
+        } catch (BaseException | Exception ex ) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     @Override
     public void getSlotNumbersOfVehicleWithColor(String[] args) {
-
+        GetSlotsForVehiclesWithColorAction getSlotsForVehiclesWithColorAction = new
+                GetSlotsForVehiclesWithColorAction(parkingLotData);
+        try{
+            getSlotsForVehiclesWithColorAction.performAction(args);
+        } catch (BaseException | Exception ex ) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     @Override
     public void getSlotNumberOfVehicleWithRegistrationNumber(String[] args) {
-
+        GetSlotNumberForRegistrationNumber getSlotNumberForRegistrationNumber = new
+                GetSlotNumberForRegistrationNumber(parkingLotData);
+        try{
+            getSlotNumberForRegistrationNumber.performAction(args);
+        } catch (BaseException | Exception ex ) {
+            System.out.println(ex.getMessage());
+        }
     }
 }
