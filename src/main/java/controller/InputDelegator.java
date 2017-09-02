@@ -1,9 +1,8 @@
 package controller;
 
-import commands.ParkingActionConstants;
 import service.ParkingLotServiceImpl;
 
-import static commands.ParkingActionConstants.*;
+import static actions.ParkingActionConstants.*;
 
 public class InputDelegator {
     ParkingLotServiceImpl parkingLotService;

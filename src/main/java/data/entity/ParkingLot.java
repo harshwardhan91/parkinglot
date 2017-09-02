@@ -5,11 +5,9 @@ import java.util.List;
 
 public class ParkingLot {
 
-    int numberOfFloors;
-
-    int numberOfSlots;
-
-    List<List<ParkingSlot>> parkingSlots;
+    private int numberOfFloors;
+    private int numberOfSlots;
+    private List<List<ParkingSlot>> parkingSlots;
 
     public ParkingLot(int numberOfSlots) {
         this.numberOfSlots = numberOfSlots;
@@ -17,7 +15,7 @@ public class ParkingLot {
         parkingSlots = new ArrayList<>();
         parkingSlots.add(new ArrayList<>());
         for (int i = 0; i < this.numberOfSlots; i++) {
-            parkingSlots.get(0).add(new ParkingSlot(ParkingSpaceType.GENERAL));
+            parkingSlots.get(0).add(new ParkingSlot(0,i));
         }
     }
 
@@ -28,8 +26,20 @@ public class ParkingLot {
         for (int j = 0; j < numberOfFloors; j++) {
             parkingSlots.add(new ArrayList<>());
             for (int i = 0; i < numberOfSlots; i++) {
-                parkingSlots.get(j).add(new ParkingSlot(ParkingSpaceType.GENERAL));
+                parkingSlots.get(j).add(new ParkingSlot(j,i));
             }
         }
+    }
+
+    public int getNumberOfFloors() {
+        return numberOfFloors;
+    }
+
+    public int getNumberOfSlots() {
+        return numberOfSlots;
+    }
+
+    public List<List<ParkingSlot>> getParkingSlots() {
+        return parkingSlots;
     }
 }

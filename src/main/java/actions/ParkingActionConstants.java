@@ -1,4 +1,4 @@
-package commands;
+package actions;
 
 public class ParkingActionConstants {
     public static final String CREATE_PARKING_LOT = "create_parking_lot";

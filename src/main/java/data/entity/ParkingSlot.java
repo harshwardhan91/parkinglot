@@ -4,8 +4,12 @@ public class ParkingSlot {
 
     private ParkingSpaceType parkingSlotType;
     private Vehicle parkedVehicle;
-    public ParkingSlot() {
+    private int floor;
+    private int slotNumber;
+    public ParkingSlot(int floor,int slotNumber) {
         parkingSlotType = ParkingSpaceType.GENERAL;
+        this.floor = floor;
+        this.slotNumber = slotNumber;
     }
 
     public ParkingSlot(ParkingSpaceType parkingSlotType) {
@@ -28,5 +32,13 @@ public class ParkingSlot {
 
     public Vehicle getParkedVehicle() {
         return parkedVehicle;
+    }
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public int getSlotNumber() {
+        return slotNumber;
     }
 }
