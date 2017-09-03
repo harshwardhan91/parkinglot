@@ -7,6 +7,9 @@ import exceptions.InvalidArgumentException;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Defines the action associated with getting all slots with given color
+ */
 public class GetSlotsForVehiclesWithColorAction extends BaseParkingAction {
     public GetSlotsForVehiclesWithColorAction(ParkingLotData parkingLotData) {
         super(parkingLotData);

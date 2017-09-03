@@ -9,12 +9,13 @@ import exceptions.DataNotExistException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Interface for the daa layer to interact with client layer
+ * provides the data according to client's requirement
+ */
 public class ParkingLotData {
 
     private static ParkingLot parkingLotInstance;
-
-    public ParkingLotData() {
-    }
 
     public void createNewParkingLot(int numberOfFloors,int numberOfSlots){
         parkingLotInstance = new ParkingLot(numberOfFloors,numberOfSlots);

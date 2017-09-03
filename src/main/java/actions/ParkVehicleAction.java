@@ -8,6 +8,9 @@ import exceptions.InvalidArgumentException;
 
 import static java.lang.System.out;
 
+/**
+ * Defines the action associated with parking a given vehicle in Parking lot
+ */
 public class ParkVehicleAction extends BaseParkingAction {
     public ParkVehicleAction(ParkingLotData parkingLotData) {
         super(parkingLotData);

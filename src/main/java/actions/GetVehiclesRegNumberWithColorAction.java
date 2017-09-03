@@ -7,6 +7,9 @@ import exceptions.InvalidArgumentException;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Defines the action associated with getting all registration numbers with given color
+ */
 public class GetVehiclesRegNumberWithColorAction extends BaseParkingAction {
     public GetVehiclesRegNumberWithColorAction(ParkingLotData parkingLotData) {
         super(parkingLotData);

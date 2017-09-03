@@ -4,7 +4,9 @@ import data.ParkingLotData;
 import exceptions.BaseException;
 import exceptions.InvalidArgumentException;
 
-
+/**
+ * Defines the action associated with getting the slot number for given registration number
+ */
 public class GetSlotNumberForRegistrationNumberAction extends BaseParkingAction {
     public GetSlotNumberForRegistrationNumberAction(ParkingLotData parkingLotData) {
         super(parkingLotData);

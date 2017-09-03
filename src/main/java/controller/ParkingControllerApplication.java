@@ -21,6 +21,9 @@ public class ParkingControllerApplication {
         }
     }
 
+    /**
+     * Read inputs from command line
+     */
     private static void readFromArguments() {
         Scanner scanner = new Scanner(System.in);
         String s;
@@ -28,7 +31,9 @@ public class ParkingControllerApplication {
             inputDelegator.delegate(s);
         }
     }
-
+    /**
+     * Read inputs from file
+     */
     private static void readFile(String filePath) {
         try (Stream<String> stream = Files.lines(Paths.get(filePath))) {
             stream.forEach(s ->inputDelegator.delegate(s));

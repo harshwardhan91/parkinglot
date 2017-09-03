@@ -6,6 +6,9 @@ import exceptions.InvalidArgumentException;
 
 import static java.lang.System.out;
 
+/**
+ * Defines the action associated with creating a new Parking lot
+ */
 public class CreateParkingLotAction extends BaseParkingAction {
     public CreateParkingLotAction(ParkingLotData parkingLotData) {
         super(parkingLotData);

@@ -13,6 +13,11 @@ public class InputDelegator {
         this.parkingLotService = parkingLotService;
     }
 
+    /**
+     * Separates the string input into array to be treated as input array
+     * @param input received from user(file or command line)
+     * @return whether input operation was success or not
+     */
     public  boolean delegate(String input){
         if(input.length()<1){
             return false;
@@ -22,6 +27,11 @@ public class InputDelegator {
         return delegateAction(arguments);
     }
 
+    /**
+     * Finds the correct command associated with the input
+     * @param arguments received from the user
+     * @return whether operation was success or not
+     */
     private boolean delegateAction(String[] arguments) {
         String action = arguments[0];
         boolean result = true;

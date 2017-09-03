@@ -3,6 +3,9 @@ package actions;
 import data.ParkingLotData;
 import exceptions.BaseException;
 
+/**
+ * Defines the action associated with showing status of the Parking lot
+ */
 public class ShowStatusAction extends BaseParkingAction {
     public ShowStatusAction(ParkingLotData parkingLotData) {
         super(parkingLotData);

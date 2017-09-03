@@ -4,6 +4,9 @@ import data.ParkingLotData;
 import exceptions.BaseException;
 import exceptions.InvalidArgumentException;
 
+/**
+ * Defines the action associated with leave a vehicle from given slot
+ */
 public class LeaveParkingAction extends BaseParkingAction {
     public LeaveParkingAction(ParkingLotData parkingLotData) {
         super(parkingLotData);
