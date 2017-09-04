@@ -31,7 +31,21 @@ e.g. slot_numbers_for_cars_with_colour White
 7. Get slot of the vehivcle given registration number "slot_number_for_registration_number"<br>
 e.g. slot_number_for_registration_number KA-01-HH-3141
 
-
+This solution is adaptable to the High Scalable situations.<br>
+Each of the different components have been separated out and separation of concern principle is tried to be adhered at all possible levels.<br>
+Client input and application level handling is defined in controller and actions.<br>
+Data layer handling has been done by data.<br>
+<t>   ParkingLotData.java acts as layer above the actual data parkingLot.java.<br>
+Interaction between them is maintained using service.<br>
+<br>
+<br>
+Right now all data is stored in memory, hence no caching and database interaction is needed here.<br>
+But in case we need data scaling that can be done in ParkingLotData interface.<br>
+if application layer scaling is needed we can scale out from ParkingLotServiceImpl.<br>
+Caching can be provided by keeping caching at ParkingLotData by maintaining key value pair with key input and response set.<br> 
+Since here it didn't make much of the performance hit here haven't kept a separate for Map here.<br>
+<br>
+<br>
 Steps to execute the programme:
 1. Unzip the folder, and go to the directory where directory.
 2. run mvn clean install.
